@@ -19,7 +19,7 @@ const syne = Syne({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#07090E',
+  themeColor: '#06080C',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -28,6 +28,9 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'SV Tuning & Performance | Blindaje PPF, Detailing y Tuning en Arequipa',
   description: 'Taller de ultra lujo en Arequipa fundado por Paul Abel Ayamamani López. Especialistas certificados en PPF SV Defender Ultra, polarizado nanocerámico 99% UV, tratamiento cerámico 9H y escapes Valvetronic. Sedes en Dolores y Sachaca.',
+  icons: {
+    icon: '/favicon.svg',
+  },
   keywords: [
     'SV Tuning',
     'Paul Ayamamani',
