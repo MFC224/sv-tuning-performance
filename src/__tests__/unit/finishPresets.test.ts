@@ -9,14 +9,14 @@ describe('Unit Tests: finishPresets.ts', () => {
     expect(obsidian?.hex.toLowerCase()).toBe('#0a0d14');
   });
 
-  it('should include Stealth Satin Grey and Cyber Neon Cyan presets', () => {
+  it('should include Stealth Satin Grey and Gentian Deep Blue presets', () => {
     const stealth = colorFinishPresets.find((c) => c.id === 'stealth-satin-grey');
     expect(stealth).toBeDefined();
     expect(stealth?.finishType).toBe('satin');
 
-    const cyan = colorFinishPresets.find((c) => c.id === 'cyber-neon-cyan');
-    expect(cyan).toBeDefined();
-    expect(cyan?.hex).toBe('#00F0FF');
+    const blue = colorFinishPresets.find((c) => c.id === 'gentian-blue-metallic');
+    expect(blue).toBeDefined();
+    expect(blue?.hex).toBe('#1E3A8A');
   });
 
   it('should validate PPF protection tiers with 10-year warranty on full body', () => {

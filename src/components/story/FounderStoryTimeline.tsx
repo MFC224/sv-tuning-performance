@@ -116,12 +116,12 @@ export default function FounderStoryTimeline() {
               onClick={() => setActiveMilestoneIndex(idx)}
               className={`p-3.5 sm:p-4 rounded-2xl transition-all duration-200 text-left border cursor-pointer ${
                 isActive 
-                  ? 'bg-[#1A2234] border-[#00F0FF] shadow-lg shadow-[#00F0FF]/15 scale-[1.02]' 
+                  ? 'bg-[#1A2234] border-[#C5A059] shadow-lg shadow-[#C5A059]/15 scale-[1.02]' 
                   : 'bg-[#111622]/70 border-white/5 hover:bg-[#111622] text-[#94A3B8]'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className={`text-xs font-black ${isActive ? 'text-[#00F0FF]' : 'text-[#94A3B8]'}`}>
+                <span className={`text-xs font-black ${isActive ? 'text-[#C5A059]' : 'text-[#94A3B8]'}`}>
                   {milestone.year}
                 </span>
                 <span className="text-[10px] uppercase font-bold text-[#94A3B8] hidden sm:inline">
@@ -140,7 +140,7 @@ export default function FounderStoryTimeline() {
       <div className="rounded-3xl glass-panel p-8 sm:p-12 border border-white/15 relative overflow-hidden">
         
         {/* Glow ambient */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#00F0FF]/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#C5A059]/10 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10 relative">
           
@@ -148,7 +148,7 @@ export default function FounderStoryTimeline() {
           <div className="lg:col-span-8 flex flex-col gap-4">
             
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-sm sm:text-base font-black px-3.5 py-1 rounded-xl bg-[#00F0FF] text-black">
+              <span className="text-sm sm:text-base font-black px-3.5 py-1 rounded-xl bg-[#C5A059] text-black">
                 {activeMilestone.year}
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-[#E5B869] px-3 py-1 rounded-xl bg-[#E5B869]/10 border border-[#E5B869]/20">
@@ -183,7 +183,7 @@ export default function FounderStoryTimeline() {
                 href={socialProof.tiktokUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00F0FF] hover:bg-[#38f4ff] text-black text-xs font-bold transition-all shadow-md shadow-[#00F0FF]/25"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-bold transition-all shadow-md"
               >
                 <span>Ver Proceso en TikTok ({socialProof.tiktokFollowers})</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -195,7 +195,7 @@ export default function FounderStoryTimeline() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#111622] hover:bg-[#1A2234] border border-white/15 text-white text-xs font-bold transition-all"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#FF3823]" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#C5A059]" />
                 <span>Contactar a Paul Ayamamani</span>
               </a>
             </div>
@@ -209,7 +209,7 @@ export default function FounderStoryTimeline() {
               <span className="text-xs uppercase font-extrabold text-[#94A3B8] tracking-widest mb-1">
                 {activeMilestone.metricLabel}
               </span>
-              <span className="text-3xl sm:text-4xl font-black text-[#00F0FF]">
+              <span className="text-3xl sm:text-4xl font-black text-[#C5A059]">
                 {activeMilestone.metricValue}
               </span>
               <span className="text-[11px] text-[#94A3B8] mt-2">

@@ -6,16 +6,10 @@ import {
   ShieldCheck, 
   Sun, 
   Moon, 
-  Rotate3d, 
   Camera, 
-  Eye, 
   MessageCircle, 
-  Layers, 
   Cpu, 
-  Check, 
-  Share2,
-  Copy,
-  Info
+  Check
 } from 'lucide-react';
 import { VehicleModel, ColorFinishPreset, PPFProtectionTier, WindowTintTier, BranchId } from '@/types';
 import { vehicleCatalog } from '@/data/vehicleCatalog';
@@ -71,11 +65,11 @@ export default function StudioHUD({
   const whatsappMessage = `Hola Paul Ayamamani / SV Tuning (${currentBranchInfo.name}),
 He configurado mi vehículo en el SV 3D Studio:
 • Vehículo: ${selectedVehicle.brand} ${selectedVehicle.model} (${selectedVehicle.edition})
-• Color / Acabado: ${selectedColor.name}
-• Blindaje PPF: ${selectedPPF.name}
-• Polarizado Térmico: ${selectedTint.name}
-• Sede de Atención: ${currentBranchInfo.name}
-• Código de Configuración: ${configCode}
+• Acabado: ${selectedColor.name}
+• Blindaje: ${selectedPPF.name}
+• Polarizado: ${selectedTint.name}
+• Sede: ${currentBranchInfo.name}
+• Código: ${configCode}
 • Presupuesto Estimado: S/ ${totalPriceSoles.toLocaleString()}
 
 ¿Podemos coordinar la fecha para la evaluación técnica?`;
@@ -85,17 +79,16 @@ He configurado mi vehículo en el SV 3D Studio:
     { id: 'side', label: 'Lateral' },
     { id: 'threeQuarterRear', label: '3/4 Trasera' },
     { id: 'front', label: 'Frontal' },
-    { id: 'top', label: 'Cenital' },
   ];
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-6 w-full">
       
       {/* Top Bar: Vehicle Selector & Lighting Toggle */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl glass-panel border border-white/10">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#0F131C] border border-white/10">
         
         {/* Vehicle Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-2">
           {vehicleCatalog.map((v) => {
             const isSelected = selectedVehicle.id === v.id;
             return (
@@ -103,10 +96,10 @@ He configurado mi vehículo en el SV 3D Studio:
                 key={v.id}
                 type="button"
                 onClick={() => onSelectVehicle(v)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-[#00F0FF] text-black shadow-md shadow-[#00F0FF]/30'
-                    : 'bg-[#111622] text-[#94A3B8] hover:text-white hover:bg-[#1A2234]'
+                    ? 'bg-white text-black shadow-md'
+                    : 'bg-[#141A26] text-[#94A3B8] hover:text-white hover:bg-[#1A2232]'
                 }`}
               >
                 {v.brand} {v.model}
@@ -115,26 +108,26 @@ He configurado mi vehículo en el SV 3D Studio:
           })}
         </div>
 
-        {/* Studio Lighting & Controls */}
+        {/* Studio Lighting Toggle (Studio White / Studio Dark) */}
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={onToggleNightMode}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-              isNightMode 
-                ? 'bg-[#00F0FF]/20 text-[#00F0FF] border-[#00F0FF]/40 shadow-sm shadow-[#00F0FF]/20' 
-                : 'bg-[#111622] text-white border-white/10 hover:border-white/20'
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+              !isNightMode 
+                ? 'bg-white text-black border-white shadow-sm' 
+                : 'bg-[#141A26] text-[#94A3B8] border-white/10 hover:text-white'
             }`}
           >
             {isNightMode ? (
               <>
-                <Moon className="w-3.5 h-3.5 text-[#00F0FF]" />
-                <span>Noche Neón</span>
+                <Moon className="w-3.5 h-3.5 text-[#C5A059]" />
+                <span>Estudio Noche</span>
               </>
             ) : (
               <>
-                <Sun className="w-3.5 h-3.5 text-[#E5B869]" />
-                <span>Estudio Día</span>
+                <Sun className="w-3.5 h-3.5 text-[#C5A059]" />
+                <span>Estudio Blanco</span>
               </>
             )}
           </button>
@@ -146,19 +139,19 @@ He configurado mi vehículo en el SV 3D Studio:
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
         
         {/* Left Sub-panel: Finish & Color Swatches */}
-        <div className="md:col-span-6 flex flex-col gap-4 p-5 rounded-3xl glass-panel border border-white/10">
+        <div className="md:col-span-6 flex flex-col gap-4 p-6 rounded-3xl bg-[#0F131C] border border-white/10">
           
           <div className="flex items-center justify-between">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[#00F0FF] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Color & Acabado PBR
+            <span className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" /> Acabado & Color de Carrocería
             </span>
-            <span className="text-[11px] text-[#94A3B8] font-medium">
+            <span className="text-xs text-[#C5A059] font-medium">
               {selectedColor.name}
             </span>
           </div>
 
           {/* Color Circles */}
-          <div className="grid grid-cols-4 sm:grid-cols-7 gap-2.5">
+          <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
             {colorFinishPresets.map((color) => {
               const isSelected = selectedColor.id === color.id;
               return (
@@ -169,16 +162,16 @@ He configurado mi vehículo en el SV 3D Studio:
                   onClick={() => onSelectColor(color)}
                   className={`relative w-10 h-10 rounded-2xl flex items-center justify-center transition-all cursor-pointer border ${
                     isSelected 
-                      ? 'border-[#00F0FF] scale-110 shadow-lg shadow-[#00F0FF]/30 ring-2 ring-[#00F0FF]/40' 
-                      : 'border-white/20 hover:border-white/50 hover:scale-105'
+                      ? 'border-[#C5A059] scale-110 shadow-lg ring-2 ring-[#C5A059]/40' 
+                      : 'border-white/15 hover:border-white/40 hover:scale-105'
                   }`}
                   style={{ backgroundColor: color.hex }}
                 >
                   {isSelected && (
-                    <Check className={`w-4 h-4 ${color.hex === '#F4F7FB' || color.hex === '#00F0FF' ? 'text-black' : 'text-white'}`} />
+                    <Check className={`w-4 h-4 ${color.hex === '#F4F7FB' || color.hex === '#FFFFFF' || color.hex === '#E5E7EB' ? 'text-black' : 'text-white'}`} />
                   )}
                   {color.isFlagship && !isSelected && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#00F0FF]" />
+                    <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#C5A059]" />
                   )}
                 </button>
               );
@@ -189,12 +182,12 @@ He configurado mi vehículo en el SV 3D Studio:
             {selectedColor.description}
           </p>
 
-          {/* Camera View Angle Selector */}
+          {/* Angle Presets */}
           <div className="pt-3 border-t border-white/10">
-            <span className="text-[10px] uppercase font-bold text-[#94A3B8] tracking-wider block mb-2 flex items-center gap-1">
-              <Camera className="w-3 h-3 text-[#E5B869]" /> Ángulos de Cámara de Estudio
+            <span className="text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest block mb-2 flex items-center gap-1.5">
+              <Camera className="w-3 h-3 text-[#C5A059]" /> Perspectivas de Cámara
             </span>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {cameraPresetsList.map((cam) => {
                 const isActive = activeCameraPreset === cam.id;
                 return (
@@ -202,10 +195,10 @@ He configurado mi vehículo en el SV 3D Studio:
                     key={cam.id}
                     type="button"
                     onClick={() => onSetCameraPreset(cam.id)}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all cursor-pointer border ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border ${
                       isActive 
-                        ? 'bg-white/15 text-white border-[#00F0FF]/50 text-[#00F0FF]' 
-                        : 'bg-[#111622]/60 text-[#94A3B8] border-white/5 hover:text-white hover:bg-[#1A2234]'
+                        ? 'bg-white text-black border-white shadow-sm' 
+                        : 'bg-[#141A26] text-[#94A3B8] border-white/5 hover:text-white'
                     }`}
                   >
                     {cam.label}
@@ -218,20 +211,20 @@ He configurado mi vehículo en el SV 3D Studio:
         </div>
 
         {/* Right Sub-panel: Blindaje PPF & Polarizado Nanocerámico */}
-        <div className="md:col-span-6 flex flex-col gap-4 p-5 rounded-3xl glass-panel border border-white/10">
+        <div className="md:col-span-6 flex flex-col gap-4 p-6 rounded-3xl bg-[#0F131C] border border-white/10">
           
           {/* PPF Tier Selector */}
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[#FF3823] flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5" /> Blindaje PPF SV Defender
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C5A059]" /> Blindaje PPF SV Defender
               </span>
               <span className="text-[11px] font-bold text-emerald-400">
-                {selectedPPF.warrantyYears ? `${selectedPPF.warrantyYears} Años Garantía` : 'Sin Blindaje'}
+                {selectedPPF.warrantyYears ? `${selectedPPF.warrantyYears} Años Garantía Escrita` : 'Sin Blindaje'}
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2.5">
               {ppfProtectionTiers.map((tier) => {
                 const isSelected = selectedPPF.id === tier.id;
                 return (
@@ -239,16 +232,16 @@ He configurado mi vehículo en el SV 3D Studio:
                     key={tier.id}
                     type="button"
                     onClick={() => onSelectPPF(tier)}
-                    className={`p-2.5 rounded-xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-3 rounded-xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected 
-                        ? 'bg-[#1A2234] border-[#00F0FF]/70 shadow-md shadow-[#00F0FF]/15' 
-                        : 'bg-[#111622] border-white/5 hover:bg-[#161D2C] text-[#94A3B8]'
+                        ? 'bg-[#1A2232] border-[#C5A059]/60 shadow-md' 
+                        : 'bg-[#141A26] border-white/5 hover:bg-[#1A2232] text-[#94A3B8]'
                     }`}
                   >
                     <span className="text-xs font-bold text-white block">
                       {tier.name.split('(')[0]}
                     </span>
-                    <span className="text-[10px] text-[#00F0FF] font-semibold mt-1">
+                    <span className="text-[11px] text-[#C5A059] font-semibold mt-1">
                       {tier.priceEstimateSoles > 0 ? `S/ ${tier.priceEstimateSoles.toLocaleString()}` : 'S/ 0'}
                     </span>
                   </button>
@@ -259,9 +252,9 @@ He configurado mi vehículo en el SV 3D Studio:
 
           {/* Window Tint Selector */}
           <div className="pt-3 border-t border-white/10">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[#E5B869] flex items-center gap-1.5">
-                <Sun className="w-3.5 h-3.5" /> Polarizado Nanocerámico 99% UV
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+                <Sun className="w-3.5 h-3.5 text-[#C5A059]" /> Polarizado Nanocerámico Térmico 99% UV
               </span>
               <span className="text-[11px] text-[#94A3B8]">
                 {selectedTint.vltPercentage}% Visibilidad
@@ -278,14 +271,14 @@ He configurado mi vehículo en el SV 3D Studio:
                     onClick={() => onSelectTint(tint)}
                     className={`p-2 rounded-xl text-center border transition-all cursor-pointer ${
                       isSelected 
-                        ? 'bg-[#1A2234] border-[#E5B869] shadow-md shadow-[#E5B869]/20' 
-                        : 'bg-[#111622] border-white/5 hover:bg-[#161D2C] text-[#94A3B8]'
+                        ? 'bg-[#1A2232] border-[#C5A059] shadow-md text-white' 
+                        : 'bg-[#141A26] border-white/5 hover:bg-[#1A2232] text-[#94A3B8]'
                     }`}
                   >
-                    <span className="text-xs font-black text-white block">
+                    <span className="text-xs font-black block">
                       {tint.vltPercentage}%
                     </span>
-                    <span className="text-[9px] text-[#94A3B8] block truncate">
+                    <span className="text-[10px] text-[#94A3B8] block truncate">
                       {tint.name.split(' ')[1]}
                     </span>
                   </button>
@@ -294,16 +287,16 @@ He configurado mi vehículo en el SV 3D Studio:
             </div>
           </div>
 
-          {/* Branch Toggle in Studio */}
+          {/* Branch Selector in Studio */}
           <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-            <span className="text-[#94A3B8] font-medium">Sede de Instalación:</span>
+            <span className="text-[#94A3B8]">Sede Asignada:</span>
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => onSelectBranch('dolores')}
-                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                   selectedBranch === 'dolores'
-                    ? 'bg-[#00F0FF]/20 text-[#00F0FF] border border-[#00F0FF]/40'
+                    ? 'bg-[#1A2232] text-white border border-[#C5A059]/40'
                     : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
@@ -312,9 +305,9 @@ He configurado mi vehículo en el SV 3D Studio:
               <button
                 type="button"
                 onClick={() => onSelectBranch('sachaca')}
-                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                   selectedBranch === 'sachaca'
-                    ? 'bg-[#FF3823]/20 text-[#FF3823] border border-[#FF3823]/40'
+                    ? 'bg-[#1A2232] text-white border border-[#C5A059]/40'
                     : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
@@ -327,10 +320,10 @@ He configurado mi vehículo en el SV 3D Studio:
 
       </div>
 
-      {/* Bottom Conversion Bar: Total, SV-Code & WhatsApp Link */}
-      <div className="p-4 sm:p-5 rounded-2xl glass-panel border border-[#00F0FF]/30 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-black/60">
+      {/* Bottom Conversion Bar: Total, SV-Code & WhatsApp Button */}
+      <div className="p-5 sm:p-6 rounded-2xl bg-[#0F131C] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 shadow-2xl shadow-black">
         
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8 text-center sm:text-left">
           <div>
             <span className="text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest block">
               Inversión Estimada
@@ -341,11 +334,11 @@ He configurado mi vehículo en el SV 3D Studio:
             </span>
           </div>
 
-          <div className="sm:border-l sm:border-white/10 sm:pl-6">
-            <span className="text-[10px] uppercase font-bold text-[#00F0FF] tracking-widest block flex items-center gap-1 justify-center sm:justify-start">
-              <Cpu className="w-3 h-3" /> SV-Code Canónico
+          <div className="sm:border-l sm:border-white/10 sm:pl-8">
+            <span className="text-[10px] uppercase font-bold text-[#C5A059] tracking-widest block flex items-center gap-1.5 justify-center sm:justify-start">
+              <Cpu className="w-3.5 h-3.5" /> SV-Code Canónico
             </span>
-            <code className="text-xs font-mono font-bold text-[#E5B869] bg-black/60 px-2 py-0.5 rounded border border-white/10">
+            <code className="text-xs font-mono font-bold text-white bg-black/50 px-2.5 py-1 rounded-md border border-white/10 mt-0.5 inline-block">
               {configCode}
             </code>
           </div>
@@ -355,10 +348,10 @@ He configurado mi vehículo en el SV 3D Studio:
           href={`https://wa.me/${currentBranchInfo.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-sm text-black bg-[#00F0FF] hover:bg-[#38f4ff] transition-all shadow-lg shadow-[#00F0FF]/30 hover:shadow-xl hover:shadow-[#00F0FF]/50 active:scale-95"
+          className="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider text-black bg-white hover:bg-neutral-200 transition-all shadow-xl active:scale-95"
         >
           <MessageCircle className="w-4 h-4 fill-black" />
-          <span>Cotizar Esta Configuración en WhatsApp</span>
+          <span>Cotizar Configuración en WhatsApp</span>
         </a>
 
       </div>

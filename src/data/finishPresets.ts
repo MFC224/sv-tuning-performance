@@ -26,15 +26,15 @@ export const colorFinishPresets: ColorFinishPreset[] = [
     isFlagship: true
   },
   {
-    id: 'cyber-neon-cyan',
-    name: 'Cyber Neon Cyan Metallic',
-    hex: '#00F0FF',
+    id: 'gentian-blue-metallic',
+    name: 'Gentian Deep Blue Metallic',
+    hex: '#1E3A8A',
     finishType: 'metallic',
     roughness: 0.20,
-    metalness: 0.90,
+    metalness: 0.85,
     clearcoat: 1.0,
     clearcoatRoughness: 0.08,
-    description: 'Cian neón electrizante con escamas metálicas iridiscentes. Inspirado en el ambiente nocturno del taller.',
+    description: 'Azul zafiro metálico con escamas minerales de titanio. Inspirado en los acabados de ultra lujo de Porsche Exclusive Manufaktur.',
     isFlagship: true
   },
   {

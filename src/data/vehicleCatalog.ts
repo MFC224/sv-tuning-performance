@@ -19,7 +19,7 @@ export const vehicleCatalog: VehicleModel[] = [
       recommendedService: 'PPF Full Body Heavy Duty (10 Mil) + Polarizado Nanocerámico 99% UV',
       idealBranch: 'sachaca'
     },
-    posterImage: 'https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=1600&q=80',
+    posterImage: '/images/vehicles/toyota-hilux.png',
     accentColor: '#FF6B00',
     badges: ['Más Solicitado en Arequipa', 'Overland Ready', 'Protección 10 Mil'],
     tuningPackagesAvailable: [
@@ -53,8 +53,8 @@ export const vehicleCatalog: VehicleModel[] = [
       recommendedService: 'PPF SV Defender Stealth Satin + Coating Cerámico 9H Graphene en Llantas',
       idealBranch: 'sachaca'
     },
-    posterImage: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=80',
-    accentColor: '#00F0FF',
+    posterImage: '/images/vehicles/porsche-911.png',
+    accentColor: '#C5A059',
     badges: ['Track Weapon', 'Stealth Satin Conversion', '9,000 RPM'],
     tuningPackagesAvailable: [
       'Conversión Completa PPF Satinado Stealth',
@@ -87,7 +87,7 @@ export const vehicleCatalog: VehicleModel[] = [
       recommendedService: 'Detailing Integral 3 Pasos + Polarizado Nanocerámico Térmico + PPF Frontal',
       idealBranch: 'dolores'
     },
-    posterImage: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80',
+    posterImage: '/images/vehicles/porsche-macan.png',
     accentColor: '#E5B869',
     badges: ['Lujo Diario', 'Clima Confort', '9H Graphene Mirror'],
     tuningPackagesAvailable: [
@@ -121,7 +121,7 @@ export const vehicleCatalog: VehicleModel[] = [
       recommendedService: 'Escape Valvetronic Inox T304 + Wrap Capó Carbono + PPF Faros',
       idealBranch: 'sachaca'
     },
-    posterImage: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=80',
+    posterImage: '/images/vehicles/subaru-wrx.png',
     accentColor: '#FF3823',
     badges: ['Rally Heritage', 'Valvetronic Pops & Bangs', 'Boxer Turbo'],
     tuningPackagesAvailable: [

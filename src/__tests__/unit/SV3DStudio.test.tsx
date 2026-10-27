@@ -7,14 +7,14 @@ describe('Unit Tests: SV3DStudio Master Component', () => {
   it('renders section title and introduction', () => {
     render(<SV3DStudio />);
     expect(screen.getByText('SV 3D STUDIO EXPERIENCE')).toBeInTheDocument();
-    expect(screen.getByText(/Configurador Fotorrealista PBR en Tiempo Real/i)).toBeInTheDocument();
+    expect(screen.getByText(/Estudio Fotorrealista de Configuración/i)).toBeInTheDocument();
   });
 
   it('renders studio HUD controls and color swatches', () => {
     render(<SV3DStudio />);
-    expect(screen.getByText(/Color & Acabado PBR/i)).toBeInTheDocument();
+    expect(screen.getByText(/Acabado & Color de Carrocería/i)).toBeInTheDocument();
     expect(screen.getByText(/Blindaje PPF SV Defender/i)).toBeInTheDocument();
-    expect(screen.getByText(/Polarizado Nanocerámico 99% UV/i)).toBeInTheDocument();
+    expect(screen.getByText(/Polarizado Nanocerámico Térmico 99% UV/i)).toBeInTheDocument();
   });
 
   it('renders anchor ID #estudio-3d for direct navigation', () => {

@@ -64,7 +64,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
-      <body className="min-h-screen bg-[#07090E] text-[#F8FAFC] antialiased selection:bg-[#00F0FF] selection:text-black">
+      <body className="min-h-screen bg-[#06080C] text-[#F8FAFC] antialiased selection:bg-[#C5A059] selection:text-black">
         <LenisProvider>
           <Navbar />
           <main className="relative pt-20 sm:pt-24 min-h-screen flex flex-col">

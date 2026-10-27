@@ -40,7 +40,7 @@ describe('Unit Tests: StudioHUD Component', () => {
 
   it('toggles Day/Night lighting mode', () => {
     render(<StudioHUD {...defaultProps} />);
-    const modeBtn = screen.getByRole('button', { name: /Noche Neón/i });
+    const modeBtn = screen.getByRole('button', { name: /Estudio Noche/i });
     fireEvent.click(modeBtn);
     expect(defaultProps.onToggleNightMode).toHaveBeenCalled();
   });
@@ -51,7 +51,6 @@ describe('Unit Tests: StudioHUD Component', () => {
     expect(screen.getByRole('button', { name: 'Lateral' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: '3/4 Trasera' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Frontal' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Cenital' })).toBeInTheDocument();
   });
 
   it('calls onSetCameraPreset when a camera angle is selected', () => {
@@ -71,7 +70,7 @@ describe('Unit Tests: StudioHUD Component', () => {
 
   it('renders WhatsApp booking button with prefilled configuration text', () => {
     render(<StudioHUD {...defaultProps} />);
-    const waLink = screen.getByRole('link', { name: /Cotizar Esta Configuración en WhatsApp/i });
+    const waLink = screen.getByRole('link', { name: /Cotizar Configuración en WhatsApp/i });
     expect(waLink).toBeInTheDocument();
     expect(waLink.getAttribute('href')).toContain('51987507459'); // Sachaca phone
     expect(waLink.getAttribute('href')).toContain('Porsche');

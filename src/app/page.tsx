@@ -23,10 +23,10 @@ export default function HomePage() {
   const { branches, services, uvProtectionNotice } = businessData;
 
   const iconMap: Record<string, React.ReactNode> = {
-    ShieldCheck: <ShieldCheck className="w-6 h-6 text-[#00F0FF]" />,
+    ShieldCheck: <ShieldCheck className="w-6 h-6 text-[#C5A059]" />,
     Sparkles: <Sparkles className="w-6 h-6 text-[#E5B869]" />,
     SunDim: <SunDim className="w-6 h-6 text-[#FF3823]" />,
-    Volume2: <Volume2 className="w-6 h-6 text-[#00F0FF]" />,
+    Volume2: <Volume2 className="w-6 h-6 text-[#C5A059]" />,
     Palette: <Palette className="w-6 h-6 text-[#A855F7]" />,
     Compass: <Compass className="w-6 h-6 text-[#EAB308]" />,
   };
@@ -44,15 +44,15 @@ export default function HomePage() {
       <ExplodedLayers />
 
       {/* 3. UV RADIATION ALERT (Arequipa 14 - 16+ UVI) */}
-      <section className="bg-gradient-to-r from-[#FF3823]/20 via-[#111622] to-[#FF3823]/20 border-y border-[#FF3823]/30 px-4 py-4">
+      <section className="bg-gradient-to-r from-amber-950/20 via-[#0A0D14] to-amber-950/20 border-y border-[#C5A059]/25 px-4 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-[#FF3823]/20 text-[#FF3823] shrink-0">
+            <div className="p-2 rounded-lg bg-amber-500/10 text-[#C5A059] shrink-0 border border-[#C5A059]/20">
               <SunDim className="w-5 h-5 animate-pulse" />
             </div>
             <div>
               <p className="text-xs sm:text-sm font-bold text-white">
-                Alerta de Radiación Solar Arequipa: <span className="text-[#FF3823]">{uvProtectionNotice.uvIndexArequipa}</span>
+                Alerta de Radiación Solar Arequipa: <span className="text-[#E5B869] font-black">{uvProtectionNotice.uvIndexArequipa}</span>
               </p>
               <p className="text-[11px] text-[#94A3B8]">
                 {uvProtectionNotice.sunDamageFact}
@@ -61,7 +61,7 @@ export default function HomePage() {
           </div>
           <a
             href="#despiece-ppf"
-            className="text-xs font-bold text-[#00F0FF] hover:underline flex items-center gap-1 shrink-0"
+            className="text-xs font-semibold text-[#C5A059] hover:text-white flex items-center gap-1.5 shrink-0 transition-colors"
           >
             Ver Blindaje SV Defender <ArrowRight className="w-3.5 h-3.5" />
           </a>
@@ -72,7 +72,7 @@ export default function HomePage() {
       <section id="catalogo" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[#00F0FF] mb-2 flex items-center gap-2">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#C5A059] mb-2 flex items-center gap-2">
               <Sparkles className="w-4 h-4" /> Portafolio de Ingeniería Automotriz
             </div>
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -88,12 +88,12 @@ export default function HomePage() {
           {vehicleCatalog.map((vehicle) => (
             <div
               key={vehicle.id}
-              className="group rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between border border-white/10 hover:border-[#00F0FF]/40 transition-all duration-300 relative overflow-hidden"
+              className="group rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between border border-white/10 hover:border-[#C5A059]/40 transition-all duration-300 relative overflow-hidden"
             >
               {/* Top Row: Brand, Category, Badges */}
               <div className="flex items-start justify-between gap-4 mb-4 z-10">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#00F0FF]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">
                     {vehicle.categoryLabel}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white mt-0.5">
@@ -104,21 +104,21 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <span className="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-[#1A2234] border border-white/10 text-white shrink-0">
+                <span className="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-[#111622] border border-white/10 text-white shrink-0">
                   Sede {branches[vehicle.specs.idealBranch].name}
                 </span>
               </div>
 
               {/* Vehicle Poster Image with Responsive Sizing */}
-              <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/5">
+              <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/5 bg-neutral-900/50">
                 <Image
                   src={vehicle.posterImage}
                   alt={`${vehicle.brand} ${vehicle.model} en SV Tuning Arequipa`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07090E] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06080C] via-transparent to-transparent opacity-80" />
                 
                 {/* Overlay Badges */}
                 <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
@@ -136,14 +136,14 @@ export default function HomePage() {
                   {vehicle.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-2 text-xs bg-[#07090E]/80 p-3 rounded-xl border border-white/5">
+                <div className="grid grid-cols-2 gap-2 text-xs bg-[#0A0D14]/90 p-3 rounded-xl border border-white/5">
                   <div>
                     <span className="text-[#94A3B8] block text-[10px] uppercase font-semibold">Motorización</span>
                     <span className="text-white font-bold">{vehicle.specs.power}</span>
                   </div>
                   <div>
                     <span className="text-[#94A3B8] block text-[10px] uppercase font-semibold">Blindaje Óptimo</span>
-                    <span className="text-[#00F0FF] font-bold">{vehicle.recommendedPPFThickness}</span>
+                    <span className="text-white font-bold">{vehicle.recommendedPPFThickness}</span>
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
                   href={`https://wa.me/${branches[vehicle.specs.idealBranch].whatsappNumber}?text=${encodeURIComponent(`Hola Paul SV Tuning, me interesa configurar y cotizar el tratamiento para mi ${vehicle.brand} ${vehicle.model} (${vehicle.edition}).`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00F0FF] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A059] hover:text-white transition-colors"
                 >
                   Cotizar Proyecto <ArrowRight className="w-3.5 h-3.5" />
                 </a>
@@ -173,7 +173,7 @@ export default function HomePage() {
       {/* 6. SERVICES SECTION (PPF, Cerámico 9H, Polarizado, Escapes Valvetronic, Wraps, Overland) */}
       <section id="servicios" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="text-xs font-bold uppercase tracking-widest text-[#FF3823] mb-2 flex items-center justify-center gap-2">
+          <div className="text-xs font-bold uppercase tracking-widest text-[#C5A059] mb-2 flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4" /> Especialidad Quirúrgica Automotriz
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -192,11 +192,11 @@ export default function HomePage() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-3 rounded-2xl bg-[#1A2234] border border-white/10">
-                    {iconMap[service.iconName] || <ShieldCheck className="w-6 h-6 text-[#00F0FF]" />}
+                  <div className="p-3 rounded-2xl bg-[#111622] border border-white/10">
+                    {iconMap[service.iconName] || <ShieldCheck className="w-6 h-6 text-[#C5A059]" />}
                   </div>
                   {service.badge && (
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#00F0FF]/15 text-[#00F0FF] border border-[#00F0FF]/30">
+                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#C5A059]/15 text-[#E5B869] border border-[#C5A059]/30">
                       {service.badge}
                     </span>
                   )}
@@ -251,10 +251,10 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Sede Dolores */}
-          <div className="rounded-3xl glass-panel p-8 border border-white/10 hover:border-[#00F0FF]/40 transition-all flex flex-col justify-between">
+          <div className="rounded-3xl glass-panel p-8 border border-white/10 hover:border-[#C5A059]/40 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase text-[#00F0FF] tracking-wider">
+                <span className="text-xs font-bold uppercase text-[#C5A059] tracking-wider">
                   Sede Detailing & Mantenimiento VIP
                 </span>
                 <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
@@ -272,7 +272,7 @@ export default function HomePage() {
               <div className="space-y-2 mb-6">
                 {branches.dolores.specialties.map((spec, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-slate-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                     <span>{spec}</span>
                   </div>
                 ))}
@@ -288,7 +288,7 @@ export default function HomePage() {
                 href={`https://wa.me/${branches.dolores.whatsappNumber}?text=${encodeURIComponent(branches.dolores.whatsappMessagePreset)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#00F0FF] hover:bg-[#38f4ff] text-black font-bold text-xs transition-all shadow-md shadow-[#00F0FF]/20"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-bold text-xs transition-all shadow-md shadow-white/10"
               >
                 <MessageCircle className="w-3.5 h-3.5 fill-black" />
                 Agendar en Dolores
@@ -334,9 +334,9 @@ export default function HomePage() {
                 href={`https://wa.me/${branches.sachaca.whatsappNumber}?text=${encodeURIComponent(branches.sachaca.whatsappMessagePreset)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF3823] hover:bg-[#ff5542] text-white font-bold text-xs transition-all shadow-md shadow-[#FF3823]/25"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#C5A059] hover:bg-[#b38f48] text-black font-bold text-xs transition-all shadow-md shadow-[#C5A059]/20"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                <MessageCircle className="w-3.5 h-3.5 fill-black" />
                 Agendar en Sachaca
               </a>
             </div>
@@ -346,7 +346,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. FOOTER */}
-      <footer className="mt-20 border-t border-white/10 bg-[#07090E] px-4 sm:px-6 lg:px-8 py-12">
+      <footer className="mt-20 border-t border-white/10 bg-[#06080C] px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex flex-col gap-1">
             <span className="font-black text-lg text-white">SV TUNING & PERFORMANCE</span>
@@ -363,7 +363,7 @@ export default function HomePage() {
             <a href="#despiece-ppf" className="hover:text-white transition-colors">Despiece PPF</a>
             <a href="#historia" className="hover:text-white transition-colors">Historia SEMA</a>
             <a href="#sedes" className="hover:text-white transition-colors">Sedes</a>
-            <a href={businessData.socialProof.tiktokUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#00F0FF] transition-colors">
+            <a href={businessData.socialProof.tiktokUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] transition-colors">
               TikTok Oficial
             </a>
           </div>

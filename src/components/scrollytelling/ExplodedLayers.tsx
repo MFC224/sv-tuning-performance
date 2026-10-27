@@ -82,8 +82,8 @@ const PROTECTION_LAYERS: LayerData[] = [
       'Corte milimétrico por computadora (Plotter 3D) sin bisturí en el auto',
       '10 Años de garantía escrita contra desprendimiento o amarillamiento'
     ],
-    accentColor: '#00F0FF',
-    gradient: 'from-[#00F0FF]/30 to-[#111622]',
+    accentColor: '#C5A059',
+    gradient: 'from-[#C5A059]/30 to-[#111622]',
   },
   {
     id: 4,
@@ -128,7 +128,7 @@ export default function ExplodedLayers() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F0FF]/15 border border-[#00F0FF]/30 text-xs font-bold text-[#00F0FF] mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141A26] border border-white/10 text-xs font-semibold text-[#C5A059] mb-3">
             <Layers className="w-3.5 h-3.5" /> Arquitectura Óptica de Protección Multicapa
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -195,7 +195,7 @@ export default function ExplodedLayers() {
                             {layer.name}
                           </span>
                           {isSelected && (
-                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#00F0FF]/20 text-[#00F0FF] border border-[#00F0FF]/30">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#C5A059]/20 text-[#C5A059] border border-[#C5A059]/30">
                               Activa
                             </span>
                           )}
@@ -218,7 +218,7 @@ export default function ExplodedLayers() {
             {/* Interactive Scratch & Heal Simulator */}
             <div className="pt-4 border-t border-white/10 z-10 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-xs text-[#94A3B8]">
-                <Flame className={`w-4 h-4 ${isSimulatingHeat ? 'text-[#FF3823] animate-bounce' : 'text-[#00F0FF]'}`} />
+                <Flame className={`w-4 h-4 ${isSimulatingHeat ? 'text-[#DC2626] animate-bounce' : 'text-[#C5A059]'}`} />
                 <span>
                   {scratchRepaired 
                     ? '✓ Microrrayón reparado por calor térmico (Memoria elástica)' 
@@ -232,9 +232,9 @@ export default function ExplodedLayers() {
                 type="button"
                 onClick={handleSimulateHeat}
                 disabled={isSimulatingHeat}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-black bg-[#00F0FF] hover:bg-[#38f4ff] disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#00F0FF]/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-white hover:bg-neutral-200 disabled:opacity-50 transition-all cursor-pointer shadow-md"
               >
-                <Sun className="w-3.5 h-3.5" />
+                <Sun className="w-3.5 h-3.5 text-neutral-800" />
                 Simular Calor Solar Arequipa
               </button>
             </div>
@@ -285,7 +285,7 @@ export default function ExplodedLayers() {
 
               <div className="p-3 rounded-2xl bg-[#07090E]/80 border border-white/10">
                 <span className="text-[10px] uppercase font-bold text-[#94A3B8] block">Comportamiento Térmico</span>
-                <span className="text-xs font-bold text-[#00F0FF]">{activeLayer.heatResponse}</span>
+                <span className="text-xs font-bold text-[#C5A059]">{activeLayer.heatResponse}</span>
               </div>
             </div>
 
@@ -308,10 +308,10 @@ export default function ExplodedLayers() {
                 href={`https://wa.me/51987507459?text=${encodeURIComponent(`Hola Paul SV Tuning, deseo consultar sobre la instalación de ${activeLayer.name} para mi vehículo.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs text-white bg-[#111622] hover:bg-[#1A2234] border border-[#00F0FF]/40 hover:border-[#00F0FF] transition-all duration-200"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs text-white bg-[#141A26] hover:bg-[#1A2232] border border-white/10 hover:border-[#C5A059] transition-all duration-200"
               >
                 <span>Cotizar esta capa con Paul Ayamamani</span>
-                <ChevronRight className="w-4 h-4 text-[#00F0FF]" />
+                <ChevronRight className="w-4 h-4 text-[#C5A059]" />
               </a>
             </div>
 

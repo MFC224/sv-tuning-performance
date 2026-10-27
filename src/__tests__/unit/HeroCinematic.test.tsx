@@ -25,7 +25,7 @@ describe('Unit Tests: HeroCinematic Component', () => {
     fireEvent.click(sachacaBtn);
 
     // Verify WhatsApp button now points to Sede Sachaca
-    const ctaLink = screen.getByRole('link', { name: /Cotizar en Sede Sachaca/i });
+    const ctaLink = screen.getByRole('link', { name: /Asesoría en Sede Sachaca/i });
     expect(ctaLink).toBeInTheDocument();
     expect(ctaLink.getAttribute('href')).toContain('51987507459');
   });
