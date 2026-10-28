@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -81,22 +81,84 @@ He configurado mi vehículo en el SV 3D Studio:
     { id: 'front', label: 'Frontal' },
   ];
 
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
+
+  const categories = [
+    { id: 'all', label: `Todos (${vehicleCatalog.length})` },
+    { id: 'overland', label: 'Overland 4x4' },
+    { id: 'luxury_suv', label: 'SUVs de Lujo' },
+    { id: 'supercar', label: 'Superdeportivos' },
+    { id: 'tuner', label: 'Street Tuner' },
+  ];
+
+  const filteredVehicles = categoryFilter === 'all'
+    ? vehicleCatalog
+    : vehicleCatalog.filter(v => v.category === categoryFilter);
+
   return (
     <div className="flex flex-col gap-6 w-full">
       
       {/* Top Bar: Vehicle Selector & Lighting Toggle */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#0F131C] border border-white/10">
+      <div className="flex flex-col gap-3 p-4 rounded-2xl bg-[#0F131C] border border-white/10">
         
+        {/* Category Pills Header */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[10px] uppercase font-bold text-[#94A3B8] tracking-widest mr-2">
+              Categoría:
+            </span>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setCategoryFilter(cat.id)}
+                className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  categoryFilter === cat.id
+                    ? 'bg-[#C5A059] text-black font-bold shadow-sm'
+                    : 'bg-[#141A26] text-[#94A3B8] hover:text-white'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Studio Lighting Toggle (Studio White / Studio Dark) */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onToggleNightMode}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                !isNightMode 
+                  ? 'bg-white text-black border-white shadow-sm' 
+                  : 'bg-[#141A26] text-[#94A3B8] border-white/10 hover:text-white'
+              }`}
+            >
+              {isNightMode ? (
+                <>
+                  <Moon className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <span>Estudio Noche</span>
+                </>
+              ) : (
+                <>
+                  <Sun className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <span>Estudio Blanco</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
         {/* Vehicle Tabs */}
-        <div className="flex flex-wrap items-center gap-2">
-          {vehicleCatalog.map((v) => {
+        <div className="flex flex-wrap items-center gap-2 max-h-36 overflow-y-auto pr-1">
+          {filteredVehicles.map((v) => {
             const isSelected = selectedVehicle.id === v.id;
             return (
               <button
                 key={v.id}
                 type="button"
                 onClick={() => onSelectVehicle(v)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   isSelected
                     ? 'bg-white text-black shadow-md'
                     : 'bg-[#141A26] text-[#94A3B8] hover:text-white hover:bg-[#1A2232]'
@@ -106,31 +168,6 @@ He configurado mi vehículo en el SV 3D Studio:
               </button>
             );
           })}
-        </div>
-
-        {/* Studio Lighting Toggle (Studio White / Studio Dark) */}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={onToggleNightMode}
-            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
-              !isNightMode 
-                ? 'bg-white text-black border-white shadow-sm' 
-                : 'bg-[#141A26] text-[#94A3B8] border-white/10 hover:text-white'
-            }`}
-          >
-            {isNightMode ? (
-              <>
-                <Moon className="w-3.5 h-3.5 text-[#C5A059]" />
-                <span>Estudio Noche</span>
-              </>
-            ) : (
-              <>
-                <Sun className="w-3.5 h-3.5 text-[#C5A059]" />
-                <span>Estudio Blanco</span>
-              </>
-            )}
-          </button>
         </div>
 
       </div>

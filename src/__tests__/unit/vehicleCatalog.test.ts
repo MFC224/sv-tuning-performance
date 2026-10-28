@@ -2,13 +2,19 @@ import { describe, it, expect } from 'vitest';
 import { vehicleCatalog } from '@/data/vehicleCatalog';
 
 describe('Unit Tests: vehicleCatalog.ts', () => {
-  it('should contain exactly the 4 required signature models', () => {
+  it('should contain the curated models representing Peru and SV Tuning social media', () => {
     const slugs = vehicleCatalog.map((v) => v.slug);
     expect(slugs).toContain('toyota-hilux-overland');
     expect(slugs).toContain('porsche-911-gt3');
     expect(slugs).toContain('porsche-macan-turbo');
     expect(slugs).toContain('subaru-wrx');
-    expect(vehicleCatalog.length).toBe(4);
+    expect(slugs).toContain('ford-ranger-raptor');
+    expect(slugs).toContain('toyota-land-cruiser-prado');
+    expect(slugs).toContain('toyota-fortuner');
+    expect(slugs).toContain('bmw-m4-competition');
+    expect(slugs).toContain('mercedes-amg-g63');
+    expect(slugs).toContain('audi-rs3-sportback');
+    expect(vehicleCatalog.length).toBeGreaterThanOrEqual(18);
   });
 
   it('should verify Toyota Hilux Overland configuration', () => {

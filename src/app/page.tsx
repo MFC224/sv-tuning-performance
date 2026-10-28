@@ -18,6 +18,7 @@ import HeroCinematic from '@/components/hero/HeroCinematic';
 import SV3DStudio from '@/components/studio3d/SV3DStudio';
 import ExplodedLayers from '@/components/scrollytelling/ExplodedLayers';
 import FounderStoryTimeline from '@/components/story/FounderStoryTimeline';
+import VehicleCatalogSection from '@/components/catalog/VehicleCatalogSection';
 
 export default function HomePage() {
   const { branches, services, uvProtectionNotice } = businessData;
@@ -68,104 +69,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. VEHICLE CATALOG (Toyota Hilux Overland, Porsche 911 GT3, Macan Turbo, Subaru WRX) */}
-      <section id="catalogo" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-[#C5A059] mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4" /> Portafolio de Ingeniería Automotriz
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-              VEHÍCULOS EMBLEMÁTICOS
-            </h2>
-          </div>
-          <p className="text-[#94A3B8] text-sm max-w-md mt-4 md:mt-0">
-            Cada chasis recibe un protocolo milimétrico adaptado a la geografía andina y a la velocidad en carretera.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {vehicleCatalog.map((vehicle) => (
-            <div
-              key={vehicle.id}
-              className="group rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between border border-white/10 hover:border-[#C5A059]/40 transition-all duration-300 relative overflow-hidden"
-            >
-              {/* Top Row: Brand, Category, Badges */}
-              <div className="flex items-start justify-between gap-4 mb-4 z-10">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#C5A059]">
-                    {vehicle.categoryLabel}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white mt-0.5">
-                    {vehicle.brand} {vehicle.model}
-                  </h3>
-                  <span className="text-xs font-semibold text-[#E5B869]">
-                    {vehicle.edition}
-                  </span>
-                </div>
-
-                <span className="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-[#111622] border border-white/10 text-white shrink-0">
-                  Sede {branches[vehicle.specs.idealBranch].name}
-                </span>
-              </div>
-
-              {/* Vehicle Poster Image with Responsive Sizing */}
-              <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/5 bg-neutral-900/50">
-                <Image
-                  src={vehicle.posterImage}
-                  alt={`${vehicle.brand} ${vehicle.model} en SV Tuning Arequipa`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080C] via-transparent to-transparent opacity-80" />
-                
-                {/* Overlay Badges */}
-                <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
-                  {vehicle.badges.map((b) => (
-                    <span key={b} className="text-[10px] font-bold px-2 py-0.5 rounded bg-black/75 text-white backdrop-blur-md border border-white/15">
-                      {b}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Specs & Description */}
-              <div className="space-y-4 mb-6 z-10">
-                <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
-                  {vehicle.description}
-                </p>
-
-                <div className="grid grid-cols-2 gap-2 text-xs bg-[#0A0D14]/90 p-3 rounded-xl border border-white/5">
-                  <div>
-                    <span className="text-[#94A3B8] block text-[10px] uppercase font-semibold">Motorización</span>
-                    <span className="text-white font-bold">{vehicle.specs.power}</span>
-                  </div>
-                  <div>
-                    <span className="text-[#94A3B8] block text-[10px] uppercase font-semibold">Blindaje Óptimo</span>
-                    <span className="text-white font-bold">{vehicle.recommendedPPFThickness}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Action */}
-              <div className="pt-4 border-t border-white/10 flex items-center justify-between z-10">
-                <span className="text-xs text-[#94A3B8]">
-                  {vehicle.specs.recommendedService}
-                </span>
-                <a
-                  href={`https://wa.me/${branches[vehicle.specs.idealBranch].whatsappNumber}?text=${encodeURIComponent(`Hola Paul SV Tuning, me interesa configurar y cotizar el tratamiento para mi ${vehicle.brand} ${vehicle.model} (${vehicle.edition}).`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A059] hover:text-white transition-colors"
-                >
-                  Cotizar Proyecto <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 4. VEHICLE CATALOG (20 Modelos de Élite del Mercado Peruano con Filtros y Buscador) */}
+      <VehicleCatalogSection />
 
       {/* 5. FOUNDER STORY TIMELINE (Paul Ayamamani: 2x2m con $100 -> SEMA Show Las Vegas) */}
       <FounderStoryTimeline />

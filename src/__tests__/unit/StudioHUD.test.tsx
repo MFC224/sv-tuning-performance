@@ -7,7 +7,7 @@ import { colorFinishPresets, ppfProtectionTiers, windowTintTiers } from '@/data/
 
 describe('Unit Tests: StudioHUD Component', () => {
   const defaultProps = {
-    selectedVehicle: vehicleCatalog[1], // Porsche 911 GT3
+    selectedVehicle: vehicleCatalog.find((v) => v.id === 'porsche-911-gt3')!, // Porsche 911 GT3
     onSelectVehicle: vi.fn(),
     selectedColor: colorFinishPresets[0], // Obsidian Black
     onSelectColor: vi.fn(),
