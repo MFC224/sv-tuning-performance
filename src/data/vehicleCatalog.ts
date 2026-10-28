@@ -20,6 +20,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
+    model3dPath: '/models/pickup.glb',
     accentColor: '#FF6B00',
     badges: ['Más Solicitado en Arequipa', 'Overland Ready', 'Protección 10 Mil'],
     tuningPackagesAvailable: [
@@ -54,6 +55,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/porsche-911.png',
+    model3dPath: '/models/sportcar.glb',
     accentColor: '#C5A059',
     badges: ['Track Weapon', 'Stealth Satin Conversion', '9,000 RPM'],
     tuningPackagesAvailable: [
@@ -88,6 +90,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
+    model3dPath: '/models/compact.glb',
     accentColor: '#E5B869',
     badges: ['Lujo Diario', 'Clima Confort', '9H Graphene Mirror'],
     tuningPackagesAvailable: [
@@ -122,6 +125,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/subaru-wrx.png',
+    model3dPath: '/models/sportcar.glb',
     accentColor: '#FF3823',
     badges: ['Rally Heritage', 'Valvetronic Pops & Bangs', 'Boxer Turbo'],
     tuningPackagesAvailable: [

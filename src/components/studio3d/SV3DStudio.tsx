@@ -36,7 +36,7 @@ export default function SV3DStudio() {
           </h2>
         </div>
         <p className="text-[#94A3B8] text-sm sm:text-base max-w-lg mt-4 md:mt-0 leading-relaxed">
-          Configurador hiperrealista con fotografía de estudio sobre ciclorama blanco. Simula el blindaje PPF Defender Ultra y polarizados nanocerámicos sobre chasis reales de alta gama.
+          Configurador 3D interactivo en tiempo real con modelos GLTF fotorrealistas. Rota 360°, haz zoom e interactúa con el blindaje PPF Defender Ultra y polarizados nanocerámicos sobre chasis de alta gama.
         </p>
       </div>
 

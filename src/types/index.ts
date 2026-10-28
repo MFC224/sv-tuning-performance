@@ -102,6 +102,7 @@ export interface VehicleModel {
   description: string;
   specs: VehicleSpec;
   posterImage: string;
+  model3dPath?: string;
   accentColor: string;
   badges: string[];
   tuningPackagesAvailable: string[];
