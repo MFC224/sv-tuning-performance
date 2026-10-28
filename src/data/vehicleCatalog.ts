@@ -23,7 +23,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#FF6B00',
     badges: ['Más Solicitado en Arequipa', 'Overland Ready', 'Protección 10 Mil'],
     tuningPackagesAvailable: [
@@ -58,7 +58,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#0055FF',
     badges: ['392 HP Twin-Turbo', 'FOX Suspension', 'Modo Baja'],
     tuningPackagesAvailable: [
@@ -93,7 +93,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#C5A059',
     badges: ['Prestigio Ejecutivo', 'Full Confort 7 Asientos', '4WD Permanente'],
     tuningPackagesAvailable: [
@@ -128,7 +128,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#D4AF37',
     badges: ['Top Ventas Perú', 'Chasis de Largueros', 'Garantía 10 Años'],
     tuningPackagesAvailable: [
@@ -163,7 +163,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#FF4500',
     badges: ['Suspensión Multilink', 'PRO-4X Package', 'Trocha Confort'],
     tuningPackagesAvailable: [
@@ -197,7 +197,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#CC0000',
     badges: ['Super Select 4WD', 'Dakar Legend', 'Uso Rudo'],
     tuningPackagesAvailable: [
@@ -231,7 +231,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#001E50',
     badges: ['V6 Turbo Diésel', '258 HP Overboost', 'Tracción 4MOTION'],
     tuningPackagesAvailable: [
@@ -265,7 +265,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#E60012',
     badges: ['Motor 3.0L Camionero', 'Confiabilidad Japonesa', 'Bloqueo Trasero'],
     tuningPackagesAvailable: [
@@ -303,7 +303,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/porsche-911.png',
-    model3dPath: '/models/sportcar.glb',
+    model3dPath: '/models/porsche911.glb',
     accentColor: '#C5A059',
     badges: ['Track Weapon', 'Stealth Satin Conversion', '9,000 RPM'],
     tuningPackagesAvailable: [
@@ -338,7 +338,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#E5B869',
     badges: ['Lujo Diario', 'Clima Confort', '9H Graphene Mirror'],
     tuningPackagesAvailable: [
@@ -373,7 +373,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/porsche-911.png',
-    model3dPath: '/models/sportcar.glb',
+    model3dPath: '/models/porsche911.glb',
     accentColor: '#0066B1',
     badges: ['S58 Twin-Turbo', 'Carbon Roof', '510 HP'],
     tuningPackagesAvailable: [
@@ -407,7 +407,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#C5A059',
     badges: ['V8 Biturbo 585 HP', 'Side Exhausts', 'Triple Bloqueo'],
     tuningPackagesAvailable: [
@@ -441,7 +441,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/subaru-wrx.png',
-    model3dPath: '/models/sportcar.glb',
+    model3dPath: '/models/car_concept.glb',
     accentColor: '#BB0A30',
     badges: ['5-Cylinder Turbo', '400 HP', 'RS Torque Splitter'],
     tuningPackagesAvailable: [
@@ -479,7 +479,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#008080',
     badges: ['Híbrido Auto-Recargable', 'Bajo Consumo', 'E-AWD'],
     tuningPackagesAvailable: [
@@ -513,7 +513,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#002C6C',
     badges: ['N-Line Styling', 'Parrilla Paramétrica', 'HTRAC AWD'],
     tuningPackagesAvailable: [
@@ -547,7 +547,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#9B111E',
     badges: ['GT-Line', 'Luces Bumerán', 'Interior Curvo'],
     tuningPackagesAvailable: [
@@ -581,7 +581,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'dolores'
     },
     posterImage: '/images/vehicles/porsche-macan.png',
-    model3dPath: '/models/compact.glb',
+    model3dPath: '/models/suv_mainstream.glb',
     accentColor: '#8C1D24',
     badges: ['Soul Red Armor', 'Skyactiv Turbo', 'Diseño Kodo'],
     tuningPackagesAvailable: [
@@ -615,7 +615,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/toyota-hilux.png',
-    model3dPath: '/models/pickup.glb',
+    model3dPath: '/models/g_class_amg.glb',
     accentColor: '#D35400',
     badges: ['Ejes Dana 44', 'Desconexión Sway Bar', 'Rubicon Trail Rated'],
     tuningPackagesAvailable: [
@@ -653,7 +653,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/subaru-wrx.png',
-    model3dPath: '/models/sportcar.glb',
+    model3dPath: '/models/ferrari.glb',
     accentColor: '#003399',
     badges: ['Rally Heritage', 'Valvetronic Pops & Bangs', 'Boxer Turbo'],
     tuningPackagesAvailable: [
@@ -688,7 +688,7 @@ export const vehicleCatalog: VehicleModel[] = [
       idealBranch: 'sachaca'
     },
     posterImage: '/images/vehicles/subaru-wrx.png',
-    model3dPath: '/models/sportcar.glb',
+    model3dPath: '/models/car_concept.glb',
     accentColor: '#C00000',
     badges: ['K20C1 VTEC Turbo', 'Championship White', 'Caja Manual Rev-Match'],
     tuningPackagesAvailable: [
